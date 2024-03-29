@@ -1,0 +1,13 @@
+{% include "header.html" %}
+
+<h1>Add Course</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="input_name">Name:</label>
+    <input type="text" id="input_name" name="name" required>
+    <label for="input_price">Price:</label>
+    <input type="text" id="input_price" name="price" required>
+    <button type="submit">Add Course</button>
+</form>
+
+{% include "footer.html" %}

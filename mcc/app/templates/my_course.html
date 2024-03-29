@@ -1,0 +1,13 @@
+{% include "header.html" %}
+
+<h1>My Courses</h1>
+<h1>{{user.name}}</h1>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.name }} <b>Price :{{ course.price }}</b></li>
+            <li></li>
+        {% endfor %}
+    </ul>
+
+
+    {% include "footer.html" %}

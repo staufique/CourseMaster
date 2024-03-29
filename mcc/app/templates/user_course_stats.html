@@ -1,0 +1,11 @@
+{% include "header.html" %}
+
+<h1>User Course Stats</h1>
+    <ul>
+        {% for course, user_count in user_course_count.items %}
+            <li>{{ course.name }} - Users: {{ user_count }}</li>
+        {% endfor %}
+    </ul>
+
+
+    {% include "footer.html" %}

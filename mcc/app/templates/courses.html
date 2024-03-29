@@ -1,0 +1,20 @@
+{% include "header.html" %}
+
+<h1>All Courses</h1>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.name }} - Price: {{ course.price }} 
+                {% if request.user.is_superuser %}
+                <a href="{% url 'edit-course' course.id %}">edit</a></li>
+                {% endif %}
+                <form method="post">
+                {% csrf_token %}
+                <!-- <button type="submit">Buy Course</button> -->
+                {% if not request.user.is_superuser %}
+                <a href="{% url 'buy-course' course.id %}">Buy Course</a>
+                {% endif %}
+            </form>
+        {% endfor %}
+    </ul>
+
+{% include "footer.html" %}

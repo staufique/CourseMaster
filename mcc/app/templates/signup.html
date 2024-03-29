@@ -1,0 +1,14 @@
+
+{% include "header.html" %}
+    <h1>Signup</h1>
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="tel" name="phone" placeholder="Phone" required><br>
+        <input type="date" name="dob" placeholder="Date of Birth" required><br>
+        <input type="text" name="city" placeholder="City" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <button type="submit">Signup</button>
+    </form>
+{% include "footer.html" %}

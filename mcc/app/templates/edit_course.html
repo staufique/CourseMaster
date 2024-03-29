@@ -1,0 +1,13 @@
+{% include "header.html" %}
+
+<h1>Edit Course</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="input_name">Name:</label>
+    <input type="text" id="input_name" name="name" value="{{ course.name }}" required>
+    <label for="input_price">Price:</label>
+    <input type="text" id="input_price" name="price" value="{{ course.price }}" required>
+    <button type="submit">Save Changes</button>
+</form>
+
+{% include "footer.html" %}

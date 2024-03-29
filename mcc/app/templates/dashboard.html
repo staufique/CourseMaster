@@ -1,0 +1,9 @@
+{% include "header.html" %}
+    <h1>Dashboard</h1>
+    <p>Welcome, {{ user.name }}!</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Phone: {{ user.phone }}</p>
+    <p>Date of Birth: {{ user.dob }}</p>
+    <p>City: {{ user.city }}</p>
+    <a href="{% url 'logout' %}">Logout</a>
+{% include "footer.html" %}

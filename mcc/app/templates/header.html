@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- <style>
+        /* Adjust sidebar style */
+        nav{
+            position: absolute;
+        }
+        .sidebar {
+         background-color: #e3f2fd;
+          position: relative;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 250px;
+          /* height: 500px; */
+          padding: 20px;
+          background-color: #f8f9fa;
+          border-right: 1px solid #dee2e6;
+        }
+    
+        /* Adjust main content margin to accommodate sidebar */
+        .main-content {
+          margin-left: 250px;
+          padding: 20px;
+        }
+      </style> -->
+      <style>
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: absolute;
+            top: 57px;
+            left: 0;
+            background-color: #f9f1f1;
+            padding-top: 20px;
+        }
+
+        /* Style for sidebar buttons */
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* Change color of buttons on hover */
+        .sidebar a:hover {
+            color: #201f1f;
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+    </style>
+    <title>Hello, world!</title>
+  </head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"  style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">CourseMaster</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">SignUp</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="sidebar">
+        <a href="{% url 'dashboard' %}" class="active" name="dashboard">Dashboard</a>
+
+        {% if perms.app.add_user %}
+        <a href="{% url 'adduser' %}" name="student">Add User</a>
+        {% endif %}
+        
+        {% if perms.app.view_user %}
+        <a href="#" name="viewuser">View User</a>
+        {% endif %}
+        <a href="{% url 'my-courses' %}" name="mycourse">my course</a>
+        {% if perms.app.view_course %}
+        <a href="{% url 'user-course-stats' %}" name="usercoursestats">user course stats</a>
+        {% endif %}
+        {% if perms.app.add_course %}
+        <a href="{% url 'add-course' %}" name="addcourse">add course</a>
+        {% endif %}
+        <a href="{% url 'view-courses' %}" name="addcourse">courses</a>
+        
+    </div>
+    <div class="container" style="padding-left: 160px;">
+      
+      <!-- Bootstrap JS (optional, for certain components) -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
